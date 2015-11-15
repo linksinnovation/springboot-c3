@@ -5,9 +5,11 @@
  */
 package com.linksinnovation.springboot.service;
 
-import com.linksinnovation.springboot.dto.Comment;
+import com.linksinnovation.springboot.model.Comment;
+import com.linksinnovation.springboot.repository.CommentRepository;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,17 +19,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommentService implements CService{
     
-    private static List<Comment> comments = new ArrayList<>();
+    @Autowired
+    private CommentRepository commentRepository;
     
     @Override
     public List<Comment> getComment(){
-        return comments;
+        return commentRepository.findAll();
     }
     
     @Override
     public List<Comment> saveComments(Comment comment){
-        comments.add(comment);
-        return comments;
+        commentRepository.save(comment);
+        return commentRepository.findAll();
     }
     
 }

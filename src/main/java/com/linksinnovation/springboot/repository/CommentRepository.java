@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.linksinnovation.springboot.service;
+package com.linksinnovation.springboot.repository;
 
 import com.linksinnovation.springboot.model.Comment;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Jirawong
  */
-public interface CService {
-    public List<Comment> getComment();
-    public List<Comment> saveComments(Comment comment);
+public interface CommentRepository extends JpaRepository<Comment, Integer>{
+    
 }

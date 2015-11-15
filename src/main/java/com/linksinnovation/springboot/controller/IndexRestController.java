@@ -5,7 +5,7 @@
  */
 package com.linksinnovation.springboot.controller;
 
-import com.linksinnovation.springboot.dto.Comment;
+import com.linksinnovation.springboot.model.Comment;
 import com.linksinnovation.springboot.service.CService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 /**
  *
  * @author Jirawong
@@ -25,7 +24,6 @@ public class IndexRestController {
     
     @Autowired
     private CService cService;
-    
     
     @RequestMapping(value="/",method = RequestMethod.GET)
     public List<Comment> get(){
